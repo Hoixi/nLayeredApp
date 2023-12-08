@@ -12,6 +12,6 @@ namespace Business.Abstracts;
 
 public interface IProductService
 {
-    List<GetListResponse> GetListAsync();
+    Task<GetListResponse> GetListAsync();
     Task<CreatedProductResponse> Add(CreateProductRequest createProductRequest);
 }

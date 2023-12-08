@@ -24,13 +24,12 @@ namespace WebAPI.Controllers
             return Ok(result);
         }
 
-        [HttpGet] 
-        public async Task<IActionResult> GetList() 
-        { 
-            var result = _productService.GetListAsync(); 
-            return Ok(result); 
+        [HttpGet]
+        public async Task<IActionResult> GetList()
+        {
+            var result = await _productService.GetListAsync();
+            return Ok(result);
         }
-
 
     }
 }

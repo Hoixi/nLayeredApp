@@ -1,4 +1,5 @@
-﻿using Entities.Concretes;
+﻿using Core.DataAccess.Paging;
+using Entities.Concretes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,12 @@ using System.Threading.Tasks;
 
 namespace Business.Dtos.Responses;
 
-public class GetListResponse
+public class GetListResponse : BasePageableModel
+{
+    public IList<Product> Items { get; set; }
+}
+
+public class ProductListDto
 {
     public string ProductName { get; set; }
     public decimal UnitPrice { get; set; }

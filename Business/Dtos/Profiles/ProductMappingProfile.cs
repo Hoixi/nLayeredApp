@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Business.Dtos.Requests;
 using Business.Dtos.Responses;
+using Core.DataAccess.Paging;
 using Entities.Concretes;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,15 @@ namespace Business.Dtos.Profiles;
 
 public class ProductMappingProfile : Profile
 {
+
     public ProductMappingProfile()
     {
+
         CreateMap<CreateProductRequest, Product>();
         CreateMap<Product, CreatedProductResponse>();
-        CreateMap<Product, GetListResponse>();
+        CreateMap<IPaginate<Product>, GetListResponse>();
+        CreateMap<Product, ProductListDto>();
+        
     }
 }
+

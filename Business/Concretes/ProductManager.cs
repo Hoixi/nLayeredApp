@@ -35,11 +35,10 @@ public class ProductManager : IProductService
         return createdProductResponse;
     }
 
-    public List<GetListResponse> GetListAsync()
+    public async Task<GetListResponse> GetListAsync()
     {
-        IPaginate<Product> products = _productDal.GetList();
-        List<GetListResponse> response = _mapper.Map<List<GetListResponse>>(products.Items);
-
-        return response;
+        IPaginate<Product> products = await _productDal.GetListAsync();
+        GetListResponse mapped = _mapper.Map<GetListResponse>(products);
+        return mapped;
     }
 }
