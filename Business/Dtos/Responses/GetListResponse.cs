@@ -10,7 +10,7 @@ namespace Business.Dtos.Responses;
 
 public class GetListResponse : BasePageableModel
 {
-    public IList<Product> Items { get; set; }
+    public IList<ProductListDto> Items { get; set; }
 }
 
 public class ProductListDto
