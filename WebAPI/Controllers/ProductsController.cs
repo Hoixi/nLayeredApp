@@ -27,7 +27,7 @@ namespace WebAPI.Controllers
         [HttpGet] 
         public async Task<IActionResult> GetList() 
         { 
-            var result = await _productService.GetListAsync(); 
+            var result = _productService.GetListAsync(); 
             return Ok(result); 
         }
 

@@ -1,8 +1,11 @@
-﻿using Business.Abstracts;
+﻿using AutoMapper;
+using Azure.Core;
+using Business.Abstracts;
 using Business.Dtos.Requests;
 using Business.Dtos.Responses;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
+using DataAccess.Contexts;
 using Entities.Concretes;
 using System;
 using System.Collections.Generic;
@@ -15,35 +18,28 @@ namespace Business.Concretes;
 public class ProductManager : IProductService
 {
     IProductDal _productDal;
+    IMapper _mapper;
 
-    public ProductManager(IProductDal productDal)
+
+    public ProductManager(IProductDal productDal , IMapper mapper)
     {
-        _productDal = productDal;
+        _productDal = productDal;      
+        _mapper = mapper;
     }
 
     public async Task<CreatedProductResponse> Add(CreateProductRequest createProductRequest)
     {
-        Product product = new Product();
-        product.Id = Guid.NewGuid();
-        product.ProductName = createProductRequest.ProductName;
-        product.UnitPrice = createProductRequest.UnitPrice;
-        product.QuantityPerUnit = createProductRequest.QuantityPerUnit;
-        product.UnitsInStock = createProductRequest.UnitsInStock;
-
+        Product product = _mapper.Map<Product>(createProductRequest);
         Product createdProduct = await _productDal.AddAsync(product);
-
-        CreatedProductResponse createdProductResponse = new CreatedProductResponse();
-        createdProductResponse.Id = createdProduct.Id;
-        createdProductResponse.ProductName = createProductRequest.ProductName;
-        createdProductResponse.UnitPrice = createProductRequest.UnitPrice;
-        createdProductResponse.QuantityPerUnit = createProductRequest.QuantityPerUnit;
-        createdProductResponse.UnitsInStock = createProductRequest.UnitsInStock;
-
+        CreatedProductResponse createdProductResponse = _mapper.Map<CreatedProductResponse>(createdProduct);
         return createdProductResponse;
     }
 
-    public async Task<IPaginate<Product>> GetListAsync()
+    public List<GetListResponse> GetListAsync()
     {
-        return await _productDal.GetListAsync();
+        IPaginate<Product> products = _productDal.GetList();
+        List<GetListResponse> response = _mapper.Map<List<GetListResponse>>(products.Items);
+
+        return response;
     }
 }

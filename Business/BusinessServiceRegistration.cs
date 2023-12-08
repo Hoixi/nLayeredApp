@@ -18,6 +18,9 @@ public static class BusinessServiceRegistration
     public static IServiceCollection AddBusinessServices(this IServiceCollection services)
     {
         services.AddScoped<IProductService, ProductManager>();
+        services.AddAutoMapper(typeof(BusinessServiceRegistration));
         return services;
     }
+
+
 }
