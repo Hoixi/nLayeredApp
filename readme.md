@@ -9,6 +9,9 @@ Ondan Sonra BusinessServiceRegistration.cs Dosyasına AutoMapper'ı Ekliyoruz.
 
 ![image](https://github.com/Hoixi/nLayeredApp/assets/24763981/b3e95dae-616e-4068-b279-d12b3dd4f016)
 
+## Response Dosyası
+
+![image](https://github.com/Hoixi/nLayeredApp/assets/24763981/acf63f28-3a93-440c-9c69-baa7f496f670)
 
 ## Profil Oluşturulması
 
@@ -16,7 +19,7 @@ Ondan Sonra BusinessServiceRegistration.cs Dosyasına AutoMapper'ı Ekliyoruz.
 
 (Dosya yapımız)
 
-![image](https://github.com/Hoixi/nLayeredApp/assets/24763981/d18acdf8-ca84-45b4-9393-eb860492f37c)
+![image](https://github.com/Hoixi/nLayeredApp/assets/24763981/f162dbf1-48a7-4506-9042-8140388c7f27)
 
 (Profile Dosyamınız Kodları)
 
@@ -25,7 +28,7 @@ Ondan Sonra BusinessServiceRegistration.cs Dosyasına AutoMapper'ı Ekliyoruz.
 
 AutoMapper'ı cons'a ekliyoruz
 
-![image](https://github.com/Hoixi/nLayeredApp/assets/24763981/f9a5b4d5-6b22-4da9-a366-d1bd4042a14e)
+![image](https://github.com/Hoixi/nLayeredApp/assets/24763981/e73d996a-3ca7-414f-a100-93c460d0c128)
 
 Kullanımı da bu şekilde
 
