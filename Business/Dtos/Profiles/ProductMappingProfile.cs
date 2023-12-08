@@ -19,6 +19,7 @@ public class ProductMappingProfile : Profile
 
         CreateMap<CreateProductRequest, Product>();
         CreateMap<Product, CreatedProductResponse>();
+        //GetListResponse İçin
         CreateMap<IPaginate<Product>, GetListResponse>();
         CreateMap<Product, ProductListDto>();
         
