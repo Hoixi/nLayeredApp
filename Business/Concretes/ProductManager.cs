@@ -7,6 +7,7 @@ using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using DataAccess.Contexts;
 using Entities.Concretes;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,10 +36,12 @@ public class ProductManager : IProductService
         return createdProductResponse;
     }
 
-    public async Task<GetListResponse> GetListAsync()
+    public async Task<IPaginate<GetListProductResponse>> GetListAsync(PageRequest pageRequest)
     {
-        IPaginate<Product> products = await _productDal.GetListAsync();
-        GetListResponse mapped = _mapper.Map<GetListResponse>(products);
-        return mapped;
+        var data = await _productDal.GetListAsync(include: p => p.Include(p => p.Category),
+            index:pageRequest.PageIndex,
+            size:pageRequest.PageSize);
+        var result = _mapper.Map<Paginate<GetListProductResponse>>(data); 
+        return result;
     }
 }

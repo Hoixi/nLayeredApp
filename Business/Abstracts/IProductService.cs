@@ -12,6 +12,6 @@ namespace Business.Abstracts;
 
 public interface IProductService
 {
-    Task<GetListResponse> GetListAsync();
+    Task<IPaginate<GetListProductResponse>> GetListAsync(PageRequest pageRequest);
     Task<CreatedProductResponse> Add(CreateProductRequest createProductRequest);
 }
