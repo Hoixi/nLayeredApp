@@ -26,5 +26,10 @@ public class ProductMappingProfile : Profile
         CreateMap<UpdateProductRequest, Product>();
 
     }
+
+
+
+    
 }
+
 

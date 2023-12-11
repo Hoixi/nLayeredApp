@@ -1,5 +1,6 @@
 ﻿using Business.Abstracts;
 using Business.Concretes;
+using Business.Rules;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
 using DataAccess.Contexts;
@@ -19,6 +20,8 @@ public static class BusinessServiceRegistration
     public static IServiceCollection AddBusinessServices(this IServiceCollection services)
     {
         services.AddScoped<IProductService, ProductManager>();       
+        services.AddScoped<ICategoryService, CategoryManager>();       
+        services.AddScoped<CategoryBusinessRules>();       
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
         return services;
     }
