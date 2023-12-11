@@ -1,5 +1,4 @@
-﻿using Business.Dtos.Model;
-using Core.DataAccess.Paging;
+﻿using Core.DataAccess.Paging;
 using Entities.Concretes;
 using System;
 using System.Collections.Generic;

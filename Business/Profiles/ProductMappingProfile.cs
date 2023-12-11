@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Business.Dtos.Model;
 using Business.Dtos.Requests;
 using Business.Dtos.Responses;
 using Core.DataAccess.Paging;
