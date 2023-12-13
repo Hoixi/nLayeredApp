@@ -12,14 +12,13 @@ public class ExceptionMiddleware
 {
     private readonly RequestDelegate _next;
     private readonly HttpExceptionHandler _httpExceptionHandler;
-    private readonly IHttpContextAccessor _contextAccessor;
+    
 
-    public ExceptionMiddleware(RequestDelegate next,
-        IHttpContextAccessor contextAccessor)
+    public ExceptionMiddleware(RequestDelegate next)
     {
         _next = next;
         _httpExceptionHandler = new HttpExceptionHandler();
-        _contextAccessor = contextAccessor;
+
     }
 
     public async Task Invoke(HttpContext context)
