@@ -22,6 +22,7 @@ public static class BusinessServiceRegistration
         services.AddScoped<IProductService, ProductManager>();       
         services.AddScoped<ICategoryService, CategoryManager>();       
         services.AddScoped<CategoryBusinessRules>();       
+        services.AddScoped<ProductBusinessRules>();       
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
         return services;
     }
