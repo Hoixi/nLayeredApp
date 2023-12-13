@@ -20,7 +20,9 @@ public class ProductBusinessRules : BaseBusinessRules
 
     public async Task MaximumProductCategory(int CategoryId)
     {
-        var result = await _productDal.GetListAsync(i => i.CategoryId == CategoryId);
+        var result = await _productDal.GetListAsync(
+            predicate:i => i.CategoryId == CategoryId,
+            size:25);
         if (result.Count >= 20)
         {
             throw new BusinessException(BusinessMessages.ProductCategoryLimit);
