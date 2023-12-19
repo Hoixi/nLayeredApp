@@ -25,5 +25,16 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
         builder.HasIndex(indexExpression: b => b.ProductName, name: "UK_Products_ProductName").IsUnique();
         builder.HasOne(b => b.Category);
         builder.HasQueryFilter(b => !b.DeletedDate.HasValue);
+
+        /*Configuration*/
+        /* : IEntityTypeConfiguration<>*/
+        builder.ToTable("Cities").HasKey(b => b.Id);
+        builder.Property(b => b.Id).HasColumnName("Id").IsRequired();
+        builder.HasQueryFilter(b => !b.DeletedDate.HasValue);
+
+
+
     }
+
+
 }
